@@ -1,0 +1,9 @@
+export { default as item1 } from "./1.png";
+export { default as item2 } from "./2.png";
+export { default as item3 } from "./3.png";
+export { default as item4 } from "./4.png";
+export { default as item5 } from "./5.png";
+export { default as item6 } from "./6.png";
+export { default as item7 } from "./7.png";
+export { default as item8 } from "./8.png";
+export { default as flat1 } from "./falt_image1.svg";
