@@ -5,16 +5,18 @@ import CardSection from "./CardSection";
 import Winner from "./Winner";
 import TopNav from "./TopNav";
 function Board() {
-  const { screen, gameOver } = useGameContext();
-
+  const { screen, gameOver, BoardScreen } = useGameContext();
+  console.log(BoardScreen);
   return (
-    <div className="w-full  relative h-screen overflow-hidden   bg-primary flex justify-center items-center">
-      {/* {[1, 2, 3, 4, 5].map((el) => { */}
-      <TopNav />
-      <FaltingImage />
-      <CardSection />
-      {gameOver && <Winner />}
-    </div>
+    BoardScreen && (
+      <div className="w-full  relative h-screen  overflow-hidden   bg-primary flex justify-center items-center">
+        {/* {[1, 2, 3, 4, 5].map((el) => { */}
+        <TopNav />
+        <FaltingImage />
+        <CardSection />
+        {gameOver && <Winner />}
+      </div>
+    )
   );
 }
 

@@ -7,11 +7,18 @@ const GameState = createContext();
 function GameProvider({ children }) {
   const { worngAudio, GameOverAudio, audio, successAduo } = audios;
   const [screen, setScreen] = useState({ width: 0, height: 0 });
-  const [CardItems, setCardItems] = useState(cardArray);
+  const unSortedCardArray = cardArray
+    .map((value) => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
+
+  const [CardItems, setCardItems] = useState(unSortedCardArray);
   const [EvenClick, setEvenClick] = useState(true);
+  const [BoardScreen, setBoardScreen] = useState(false);
   const [SelectItem, setSelectItem] = useState();
   const [gameOver, setGameOver] = useState();
-  const [username, setusername] = useState("Mohamemd Altigani");
+  const [username, setusername] = useState("Geust User");
+
   const HandelClickCard = (item) => {
     // Handel Filbed Card
     HandelPreventClass();
@@ -46,7 +53,8 @@ function GameProvider({ children }) {
     CheckIfGameOver();
     setEvenClick(!EvenClick);
   };
-
+  //   HandelScreen()
+  const HandelUserName = (e) => setusername(e.target.value);
   const CheckIfGameOver = () => {
     //     console.log(CardItems);
     const unresolvecard = CardItems.find((el) => el.resolve == false);
@@ -69,7 +77,11 @@ function GameProvider({ children }) {
     setCardItems([...cards]);
     console.log("Helo World ", CardItems);
   };
-  +useEffect(() => {
+  const QuniteFromGame = () => {
+    setGameOver(false);
+    setBoardScreen(false);
+  };
+  useEffect(() => {
     const handelSize = (value) => {
       setScreen(value);
     };
@@ -91,6 +103,10 @@ function GameProvider({ children }) {
         gameOver,
         restartTheGame,
         username,
+        HandelUserName,
+        BoardScreen,
+        setBoardScreen,
+        QuniteFromGame,
       }}
     >
       {children}
