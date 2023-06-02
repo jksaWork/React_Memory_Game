@@ -7,7 +7,7 @@ function FaltingImage() {
   const { screen } = useGameContext();
 
   return (
-    <div class="z-[1] blur-sm absolute top-0 left-0">
+    <div className="z-[1] blur-sm absolute top-0 left-0">
       {CardArray.map((el) => {
         const rotate = items[Math.floor(Math.random() * items.length)];
         function randomIntFromInterval(min, max) {
