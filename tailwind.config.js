@@ -6,6 +6,7 @@ export default {
       colors: {
         primary: "#192a33",
         scond: "#f24699",
+        scondary: "#1f3640",
       },
       keyframes: {
         wiggle: {

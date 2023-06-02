@@ -1,3 +1,27 @@
 .svg_image {
   max-width: 100px;
 }
+
+.back {
+  transform: rotateY(180deg);
+}
+.front {
+  backface-visibility: hidden;
+  /* border: 5px solid #2196f3;
+  width */
+  transition: all 1s linear;
+}
+.parent {
+  transition: all 1s linear;
+}
+.active .front {
+  transform: rotateY(180deg);
+}
+
+.has_match,
+.is_flipped {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  pointer-events: none;
+}

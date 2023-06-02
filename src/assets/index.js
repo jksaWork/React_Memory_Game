@@ -7,3 +7,4 @@ export { default as item6 } from "./6.png";
 export { default as item7 } from "./7.png";
 export { default as item8 } from "./8.png";
 export { default as flat1 } from "./falt_image1.svg";
+export { default as mark } from "./mark.png";

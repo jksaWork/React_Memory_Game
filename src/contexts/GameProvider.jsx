@@ -8,12 +8,12 @@ function GameProvider({ children }) {
       console.log(value, "Form Native");
       setScreen(value);
     };
-    window.addEventListener(
-      "resize",
+    window.addEventListener("resize", () =>
       handelSize({ width: window.innerWidth, height: window.innerHeight })
     );
     handelSize({ width: window.innerWidth, height: window.innerHeight });
     //     console.log(screen, "from Application");
+    window.addEventListener("resize", () => console.log(window.innerWidth));
   }, []);
 
   return (
