@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import flat1 from "../assets/falt_image1.svg";
 import CardArray, { items } from "../constants";
 import { useGameContext } from "../contexts/GameProvider";
@@ -37,4 +37,4 @@ function FaltingImage() {
   );
 }
 
-export default FaltingImage;
+export default memo(FaltingImage);

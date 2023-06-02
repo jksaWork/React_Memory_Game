@@ -17,6 +17,7 @@ function GameProvider({ children }) {
   const [BoardScreen, setBoardScreen] = useState(false);
   const [SelectItem, setSelectItem] = useState();
   const [gameOver, setGameOver] = useState();
+  const [wincount, setWincount] = useState(0);
   const [username, setusername] = useState("Geust User");
 
   const HandelClickCard = (item) => {
@@ -67,6 +68,8 @@ function GameProvider({ children }) {
 
   const restartTheGame = () => {
     setGameOver(false);
+
+    setWincount(wincount + 1);
     //     setCardItems(cardArray);
     const cards = CardItems.map((el) => {
       el.active = false;
@@ -107,6 +110,7 @@ function GameProvider({ children }) {
         BoardScreen,
         setBoardScreen,
         QuniteFromGame,
+        wincount,
       }}
     >
       {children}

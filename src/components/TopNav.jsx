@@ -2,7 +2,7 @@ import React from "react";
 import { useGameContext } from "../contexts/GameProvider";
 
 function TopNav() {
-  const { username } = useGameContext();
+  const { username, wincount } = useGameContext();
   return (
     <div className="navabr  flex justify-between p-5  bg-primary z-[10] absolute top-0 w-full drop-shadow-lg">
       <div>
@@ -15,7 +15,7 @@ function TopNav() {
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f24699] to-[#14ffa5]">
             wins:
           </span>
-          {0}
+          {wincount}
         </h4>
       </div>
       {/* Wins Cound */}
