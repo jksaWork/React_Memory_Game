@@ -15,13 +15,11 @@ function Start() {
               Memory Game
             </span>
           </h3>
-          <div className="grid grid-cols-3 cursor-pointer px-3">
+          <div className="grid grid-cols-2 cursor-pointer px-3">
             <span className="p-3 text-center  bg-white text-primary rounded-sm bg-opacity-80">
               Easy
             </span>
-            <span className="p-3 text-center  hover:bg-white  rounded-sm">
-              Medeim
-            </span>
+
             <span className="p-3 text-center  hover:bg-white rounded-sm bg-opacity-80">
               Hard
             </span>
