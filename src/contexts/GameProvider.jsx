@@ -74,9 +74,11 @@ function GameProvider({ children }) {
     const cards = CardItems.map((el) => {
       el.active = false;
       el.resolve = false;
-
       return el;
-    });
+    })
+      .map((value) => ({ value, sort: Math.random() }))
+      .sort((a, b) => a.sort - b.sort)
+      .map(({ value }) => value);
     setCardItems([...cards]);
     console.log("Helo World ", CardItems);
   };

@@ -134,4 +134,4 @@ export const HandelPreventClass = () => {
 };
 export default cardArray;
 
-export const items = ["hello"];
+export const items = [1, 3, 2, 4, 5, 6, 7];
