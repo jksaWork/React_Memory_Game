@@ -1,63 +1,55 @@
 import { useContext, createContext, useState, useEffect } from "react";
-import cardArray, { HandelPreventClass } from "../constants";
+import cardArray, {
+  HandelPreventClass,
+  cartArray2,
+  HardunSortedCardArray,
+  unSortedCardArray,
+} from "../constants";
 import audios from "../assets/sounds/index";
+import { ClickCard } from "./Logic";
 
 const GameState = createContext();
 
 function GameProvider({ children }) {
-  const { worngAudio, GameOverAudio, audio, successAduo } = audios;
   const [screen, setScreen] = useState({ width: 0, height: 0 });
-  const unSortedCardArray = cardArray
-    .map((value) => ({ value, sort: Math.random() }))
-    .sort((a, b) => a.sort - b.sort)
-    .map(({ value }) => value);
 
+  const [HardCardItems, setHardCardItems] = useState(HardunSortedCardArray);
   const [CardItems, setCardItems] = useState(unSortedCardArray);
-  const [EvenClick, setEvenClick] = useState(true);
   const [BoardScreen, setBoardScreen] = useState(false);
   const [SelectItem, setSelectItem] = useState();
   const [gameOver, setGameOver] = useState();
   const [wincount, setWincount] = useState(0);
   const [username, setusername] = useState("Geust User");
-
+  const [GameMode, setGameMode] = useState("easy");
+  const [EvenClick, setEvenClick] = useState(false);
   const HandelClickCard = (item) => {
-    // Handel Filbed Card
-    HandelPreventClass();
-    const cards = CardItems.map((el) => {
-      if (item.key == el.key) {
-        el.active = true;
-        return el;
-      }
-      return el;
-    });
-    if (EvenClick) {
-      audio.play();
-      setSelectItem(item);
-      setCardItems([...cards]);
-    } else {
-      if (SelectItem.name == item.name) {
-        successAduo.play();
-        SelectItem.resolve = item.resolve = true;
-        const filterdCard = CardItems.filter((el) => el.name == item.name);
-      } else {
-        worngAudio.play();
-      }
-      //   Reverse All Items
-      setTimeout(() => {
-        const filpeditems = CardItems.map((el) => {
-          el.active = false;
-          return el;
-        });
-        setCardItems(filpeditems);
-      }, 1000);
-    }
-    CheckIfGameOver();
-    setEvenClick(!EvenClick);
+    if (GameMode == "easy")
+      ClickCard(
+        item,
+        CardItems,
+        setCardItems,
+        SelectItem,
+        setSelectItem,
+        EvenClick,
+        setEvenClick,
+        setGameOver
+      );
+    if (GameMode == "hard")
+      ClickCard(
+        item,
+        HardCardItems,
+        setHardCardItems,
+        SelectItem,
+        setSelectItem,
+        EvenClick,
+        setEvenClick
+      );
   };
-  //   HandelScreen()
+
   const HandelUserName = (e) => setusername(e.target.value);
   const CheckIfGameOver = () => {
-    //     console.log(CardItems);
+    // console.log();
+
     const unresolvecard = CardItems.find((el) => el.resolve == false);
     if (!unresolvecard) {
       GameOverAudio.play();
@@ -113,6 +105,9 @@ function GameProvider({ children }) {
         setBoardScreen,
         QuniteFromGame,
         wincount,
+        GameMode,
+        setGameMode,
+        HardCardItems,
       }}
     >
       {children}

@@ -52,12 +52,12 @@ function FaltingImage() {
         );
       })} */}
 
-      <FrezedFlatingImage top={300} left={200} width={500} />
-      <FrezedFlatingImage top={100} left={300} width={400} />
-      <FrezedFlatingImage top={10} left={1000} width={300} />
-      <FrezedFlatingImage top={250} left={900} width={300} />
-      <FrezedFlatingImage top={10} left={700} width={300} />
-      <FrezedFlatingImage top={1} left={1} width={200} />
+      <FrezedFlatingImage top={300} left={200} width={570} />
+      <FrezedFlatingImage top={100} left={300} width={440} />
+      <FrezedFlatingImage top={10} left={1000} width={360} />
+      <FrezedFlatingImage top={250} left={900} width={390} />
+      <FrezedFlatingImage top={10} left={700} width={330} />
+      <FrezedFlatingImage top={1} left={1} width={230} />
       <FrezedFlatingImage
         top={screen.height - 10}
         left={screen.width - 10}

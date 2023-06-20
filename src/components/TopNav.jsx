@@ -12,7 +12,7 @@ function TopNav() {
       </div>
       <div>
         <h4 className="text-xl">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f24699] to-[#14ffa5]">
+          <span className="text-transparent px-2 bg-clip-text bg-gradient-to-r from-[#f24699] to-[#14ffa5]">
             wins:
           </span>
           {wincount}

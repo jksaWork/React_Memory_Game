@@ -2,7 +2,9 @@ import { useGameContext } from "../contexts/GameProvider";
 import FaltingImage from "./FaltingImage";
 
 function Start() {
-  const { HandelUserName, setBoardScreen, BoardScreen } = useGameContext();
+  const { HandelUserName, setBoardScreen, setGameMode, BoardScreen, GameMode } =
+    useGameContext();
+  console.log(GameMode);
   return (
     !BoardScreen && (
       <div className="w-full   relative h-screen overflow-hidden   bg-primary flex justify-center items-center">
@@ -15,12 +17,26 @@ function Start() {
               Memory Game
             </span>
           </h3>
-          <div className="grid grid-cols-2 cursor-pointer px-3">
-            <span className="p-3 text-center  bg-white text-primary rounded-sm bg-opacity-80">
+          <div className="grid grid-cols-2 cursor-pointer px-3 relative">
+            {/* <div className="absolute w-1/2 h-full bg-[#f24699] rounded-md bg-opacity-5 z-[1]"></div> */}
+            <span
+              onClick={() => setGameMode("easy")}
+              className={
+                `${GameMode == "easy" ? "bg-white text-primary" : ""} ` +
+                "p-3 text-center font-bold  rounded-sm bg-opacity-80"
+              }
+            >
               Easy
             </span>
 
-            <span className="p-3 text-center  hover:bg-white rounded-sm bg-opacity-80">
+            <span
+              onClick={() => setGameMode("hard")}
+              className={
+                `${GameMode == "hard" ? "bg-white text-primary" : ""} ` +
+                "p-3 text-center font-bold  rounded-sm bg-opacity-80"
+              }
+              // className="p-3 text-center font-bold   hover:bg-white hover:text-black rounded-sm bg-opacity-80"
+            >
               Hard
             </span>
           </div>
